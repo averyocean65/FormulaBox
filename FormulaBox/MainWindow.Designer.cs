@@ -61,7 +61,6 @@
             label2.Size = new Size(72, 20);
             label2.TabIndex = 2;
             label2.Text = "Variables:";
-            label2.Click += this.label2_Click;
             // 
             // listView1
             // 
