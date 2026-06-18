@@ -30,9 +30,9 @@ namespace FormulaBox
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            formulaBox = new TextBox();
             label2 = new Label();
-            listView1 = new ListView();
+            variableList = new ListView();
             sampleButton = new Button();
             calculateButton = new Button();
             SuspendLayout();
@@ -46,13 +46,13 @@ namespace FormulaBox
             label1.TabIndex = 0;
             label1.Text = "Formula Text:";
             // 
-            // textBox1
+            // formulaBox
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(12, 32);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(354, 27);
-            textBox1.TabIndex = 1;
+            formulaBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            formulaBox.Location = new Point(12, 32);
+            formulaBox.Name = "formulaBox";
+            formulaBox.Size = new Size(354, 27);
+            formulaBox.TabIndex = 1;
             // 
             // label2
             // 
@@ -63,14 +63,14 @@ namespace FormulaBox
             label2.TabIndex = 2;
             label2.Text = "Variables:";
             // 
-            // listView1
+            // variableList
             // 
-            listView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            listView1.Location = new Point(12, 100);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(472, 289);
-            listView1.TabIndex = 3;
-            listView1.UseCompatibleStateImageBehavior = false;
+            variableList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            variableList.Location = new Point(12, 100);
+            variableList.Name = "variableList";
+            variableList.Size = new Size(472, 289);
+            variableList.TabIndex = 3;
+            variableList.UseCompatibleStateImageBehavior = false;
             // 
             // sampleButton
             // 
@@ -92,7 +92,7 @@ namespace FormulaBox
             calculateButton.TabIndex = 5;
             calculateButton.Text = "Calculate";
             calculateButton.UseVisualStyleBackColor = true;
-            calculateButton.Click += this.calculateButton_Click;
+            calculateButton.Click += calculateButton_Click;
             // 
             // MainWindow
             // 
@@ -101,9 +101,9 @@ namespace FormulaBox
             ClientSize = new Size(496, 436);
             Controls.Add(calculateButton);
             Controls.Add(sampleButton);
-            Controls.Add(listView1);
+            Controls.Add(variableList);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(formulaBox);
             Controls.Add(label1);
             Name = "MainWindow";
             Text = "Form1";
@@ -115,9 +115,9 @@ namespace FormulaBox
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox formulaBox;
         private Label label2;
-        private ListView listView1;
+        private ListView variableList;
         private Button sampleButton;
         private Button calculateButton;
     }
