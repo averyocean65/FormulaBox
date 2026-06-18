@@ -11,5 +11,15 @@ namespace FormulaBox
         {
 
         }
+
+        private void sampleButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO");
+        }
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO");
+        }
     }
 }

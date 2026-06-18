@@ -1,4 +1,5 @@
-﻿namespace FormulaBox
+﻿
+namespace FormulaBox
 {
     partial class MainWindow
     {
@@ -80,6 +81,7 @@
             sampleButton.TabIndex = 4;
             sampleButton.Text = "Sample";
             sampleButton.UseVisualStyleBackColor = true;
+            sampleButton.Click += sampleButton_Click;
             // 
             // calculateButton
             // 
@@ -90,6 +92,7 @@
             calculateButton.TabIndex = 5;
             calculateButton.Text = "Calculate";
             calculateButton.UseVisualStyleBackColor = true;
+            calculateButton.Click += this.calculateButton_Click;
             // 
             // MainWindow
             // 
