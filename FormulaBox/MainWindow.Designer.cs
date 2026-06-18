@@ -40,44 +40,47 @@ namespace FormulaBox
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(10, 7);
             label1.Name = "label1";
-            label1.Size = new Size(97, 20);
+            label1.Size = new Size(78, 15);
             label1.TabIndex = 0;
             label1.Text = "Formula Text:";
             // 
             // formulaBox
             // 
             formulaBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            formulaBox.Location = new Point(12, 32);
+            formulaBox.Location = new Point(10, 24);
+            formulaBox.Margin = new Padding(3, 2, 3, 2);
             formulaBox.Name = "formulaBox";
-            formulaBox.Size = new Size(354, 27);
+            formulaBox.Size = new Size(310, 23);
             formulaBox.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 77);
+            label2.Location = new Point(10, 58);
             label2.Name = "label2";
-            label2.Size = new Size(72, 20);
+            label2.Size = new Size(56, 15);
             label2.TabIndex = 2;
             label2.Text = "Variables:";
             // 
             // variableList
             // 
             variableList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            variableList.Location = new Point(12, 100);
+            variableList.Location = new Point(10, 75);
+            variableList.Margin = new Padding(3, 2, 3, 2);
             variableList.Name = "variableList";
-            variableList.Size = new Size(472, 289);
+            variableList.Size = new Size(414, 218);
             variableList.TabIndex = 3;
             variableList.UseCompatibleStateImageBehavior = false;
             // 
             // sampleButton
             // 
             sampleButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            sampleButton.Location = new Point(372, 31);
+            sampleButton.Location = new Point(326, 23);
+            sampleButton.Margin = new Padding(3, 2, 3, 2);
             sampleButton.Name = "sampleButton";
-            sampleButton.Size = new Size(112, 29);
+            sampleButton.Size = new Size(98, 22);
             sampleButton.TabIndex = 4;
             sampleButton.Text = "Sample";
             sampleButton.UseVisualStyleBackColor = true;
@@ -86,9 +89,10 @@ namespace FormulaBox
             // calculateButton
             // 
             calculateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            calculateButton.Location = new Point(12, 395);
+            calculateButton.Location = new Point(10, 296);
+            calculateButton.Margin = new Padding(3, 2, 3, 2);
             calculateButton.Name = "calculateButton";
-            calculateButton.Size = new Size(472, 29);
+            calculateButton.Size = new Size(413, 22);
             calculateButton.TabIndex = 5;
             calculateButton.Text = "Calculate";
             calculateButton.UseVisualStyleBackColor = true;
@@ -96,17 +100,18 @@ namespace FormulaBox
             // 
             // MainWindow
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(496, 436);
+            ClientSize = new Size(434, 327);
             Controls.Add(calculateButton);
             Controls.Add(sampleButton);
             Controls.Add(variableList);
             Controls.Add(label2);
             Controls.Add(formulaBox);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MainWindow";
-            Text = "Form1";
+            Text = "Formula Box";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
