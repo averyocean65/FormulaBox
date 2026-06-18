@@ -32,9 +32,9 @@ namespace FormulaBox
             label1 = new Label();
             formulaBox = new TextBox();
             label2 = new Label();
-            variableList = new ListView();
             sampleButton = new Button();
             calculateButton = new Button();
+            variableList = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // label1
@@ -52,7 +52,7 @@ namespace FormulaBox
             formulaBox.Location = new Point(10, 24);
             formulaBox.Margin = new Padding(3, 2, 3, 2);
             formulaBox.Name = "formulaBox";
-            formulaBox.Size = new Size(310, 23);
+            formulaBox.Size = new Size(287, 23);
             formulaBox.TabIndex = 1;
             // 
             // label2
@@ -64,20 +64,10 @@ namespace FormulaBox
             label2.TabIndex = 2;
             label2.Text = "Variables:";
             // 
-            // variableList
-            // 
-            variableList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            variableList.Location = new Point(10, 75);
-            variableList.Margin = new Padding(3, 2, 3, 2);
-            variableList.Name = "variableList";
-            variableList.Size = new Size(414, 218);
-            variableList.TabIndex = 3;
-            variableList.UseCompatibleStateImageBehavior = false;
-            // 
             // sampleButton
             // 
             sampleButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            sampleButton.Location = new Point(326, 23);
+            sampleButton.Location = new Point(303, 23);
             sampleButton.Margin = new Padding(3, 2, 3, 2);
             sampleButton.Name = "sampleButton";
             sampleButton.Size = new Size(98, 22);
@@ -89,23 +79,33 @@ namespace FormulaBox
             // calculateButton
             // 
             calculateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            calculateButton.Location = new Point(10, 296);
+            calculateButton.Location = new Point(10, 307);
             calculateButton.Margin = new Padding(3, 2, 3, 2);
             calculateButton.Name = "calculateButton";
-            calculateButton.Size = new Size(413, 22);
+            calculateButton.Size = new Size(390, 22);
             calculateButton.TabIndex = 5;
             calculateButton.Text = "Calculate";
             calculateButton.UseVisualStyleBackColor = true;
             calculateButton.Click += calculateButton_Click;
             // 
+            // variableList
+            // 
+            variableList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            variableList.AutoScroll = true;
+            variableList.FlowDirection = FlowDirection.TopDown;
+            variableList.Location = new Point(12, 76);
+            variableList.Name = "variableList";
+            variableList.Size = new Size(387, 226);
+            variableList.TabIndex = 6;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(434, 327);
+            ClientSize = new Size(411, 338);
+            Controls.Add(variableList);
             Controls.Add(calculateButton);
             Controls.Add(sampleButton);
-            Controls.Add(variableList);
             Controls.Add(label2);
             Controls.Add(formulaBox);
             Controls.Add(label1);
@@ -122,8 +122,8 @@ namespace FormulaBox
         private Label label1;
         private TextBox formulaBox;
         private Label label2;
-        private ListView variableList;
         private Button sampleButton;
         private Button calculateButton;
+        private FlowLayoutPanel variableList;
     }
 }

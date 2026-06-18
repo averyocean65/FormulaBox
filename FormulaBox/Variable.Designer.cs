@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             variableTitle = new Label();
-            setVariableButton = new Button();
             variableValue = new TextBox();
             SuspendLayout();
             // 
@@ -42,33 +41,23 @@
             variableTitle.TabIndex = 0;
             variableTitle.Text = "VARIABLE HERE";
             // 
-            // setVariableButton
-            // 
-            setVariableButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            setVariableButton.Location = new Point(398, 2);
-            setVariableButton.Name = "setVariableButton";
-            setVariableButton.Size = new Size(88, 23);
-            setVariableButton.TabIndex = 1;
-            setVariableButton.Text = "Set";
-            setVariableButton.UseVisualStyleBackColor = true;
-            // 
             // variableValue
             // 
             variableValue.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             variableValue.Location = new Point(100, 4);
             variableValue.Name = "variableValue";
-            variableValue.Size = new Size(292, 23);
+            variableValue.Size = new Size(174, 23);
             variableValue.TabIndex = 2;
             // 
             // Variable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             Controls.Add(variableValue);
-            Controls.Add(setVariableButton);
             Controls.Add(variableTitle);
             Name = "Variable";
-            Size = new Size(489, 30);
+            Size = new Size(279, 30);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -76,7 +65,6 @@
         #endregion
 
         private Label variableTitle;
-        private Button setVariableButton;
         private TextBox variableValue;
     }
 }
