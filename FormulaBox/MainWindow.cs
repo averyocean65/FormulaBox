@@ -23,7 +23,8 @@ namespace FormulaBox
 
             IEnumerable<string> variables = Regex
                 .Split(formulaBox.Text, FormulaRegEx)
-                .Where(x => !string.IsNullOrEmpty(x));
+                .Where(x => !string.IsNullOrEmpty(x))
+                .Distinct();
 
             foreach(string variable in variables)
             {
@@ -37,6 +38,20 @@ namespace FormulaBox
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
+            string ReplaceFormulaChunk(string input, int index, string original, string value)
+            {
+                string output = input.Substring(0, index) + value;
+
+                int continueIndex = index + original.Length;
+                if(continueIndex < input.Length)
+                {
+                    output += input.Substring(continueIndex);
+                }
+
+                // MessageBox.Show("intermediate out: " + output);
+                return output;
+            }
+
             string filledFormula = formulaBox.Text;
             for(int i = 0; i < FormulaRecursionLimit; i++)
             {
@@ -47,7 +62,26 @@ namespace FormulaBox
                         continue;
                     }
 
-                    filledFormula = filledFormula.Replace(v.Title, v.Value);
+                    int index = filledFormula.IndexOf(v.Title);
+                    if(index < 0)
+                    {
+                        continue;
+                    }
+
+                    if(index < 1)
+                    {
+                        filledFormula = ReplaceFormulaChunk(filledFormula, index, v.Title, v.Value);
+                        continue;
+                    }
+
+                    char before = filledFormula[index - 1];
+                    string value = v.Value;
+                    if(char.IsLetterOrDigit(before))
+                    {
+                        value = "*" + value;
+                    }
+
+                    filledFormula = ReplaceFormulaChunk(filledFormula, index, v.Title, value);
                 }
             }
 
