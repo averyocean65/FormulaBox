@@ -5,7 +5,8 @@ namespace FormulaBox
     public partial class MainWindow : Form
     {
         private const int FormulaRecursionLimit = 5;
-        private const string FormulaRegEx = "[^a-zA-Z]+";
+        private const string FormulaRegEx = "[^a-zA-Z]";
+        private const string AnyLeftoverRegEx = "[a-zA-Z]";
 
         public MainWindow()
         {
@@ -48,7 +49,6 @@ namespace FormulaBox
                     output += input.Substring(continueIndex);
                 }
 
-                // MessageBox.Show("intermediate out: " + output);
                 return output;
             }
 
@@ -88,10 +88,30 @@ namespace FormulaBox
             return filledFormula;
         }
 
+        private double ResolveFormula(string formula)
+        {
+            if(Regex.Match(formula, AnyLeftoverRegEx).Length > 0)
+            {
+                ErrorManager.AddError("There are leftover variables in your formula. Please check your formula and variable values again.");
+                return double.NaN;
+            }
+
+            for(int i = 0; i < formula.Length; i++)
+            {
+                // TODO
+            }
+            return 0;
+        }
+
         private void calculateButton_Click(object sender, EventArgs e)
         {
             string filledFormula = formulaBox.Text;
+            
             filledFormula = InsertVariables(filledFormula);
+            double result = ResolveFormula(filledFormula);
+
+            // TODO: Read out errors (if there are any)
+
             MessageBox.Show(filledFormula);
         }
     }
