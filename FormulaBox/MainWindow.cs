@@ -36,14 +36,14 @@ namespace FormulaBox
             }
         }
 
-        private void calculateButton_Click(object sender, EventArgs e)
+        private string InsertVariables(string formula)
         {
             string ReplaceFormulaChunk(string input, int index, string original, string value)
             {
                 string output = input.Substring(0, index) + value;
 
                 int continueIndex = index + original.Length;
-                if(continueIndex < input.Length)
+                if (continueIndex < input.Length)
                 {
                     output += input.Substring(continueIndex);
                 }
@@ -52,8 +52,8 @@ namespace FormulaBox
                 return output;
             }
 
-            string filledFormula = formulaBox.Text;
-            for(int i = 0; i < FormulaRecursionLimit; i++)
+            string filledFormula = formula;
+            for (int i = 0; i < FormulaRecursionLimit; i++)
             {
                 foreach (Control control in variableList.Controls)
                 {
@@ -63,12 +63,12 @@ namespace FormulaBox
                     }
 
                     int index = filledFormula.IndexOf(v.Title);
-                    if(index < 0)
+                    if (index < 0)
                     {
                         continue;
                     }
 
-                    if(index < 1)
+                    if (index < 1)
                     {
                         filledFormula = ReplaceFormulaChunk(filledFormula, index, v.Title, v.Value);
                         continue;
@@ -76,7 +76,7 @@ namespace FormulaBox
 
                     char before = filledFormula[index - 1];
                     string value = v.Value;
-                    if(char.IsLetterOrDigit(before))
+                    if (char.IsLetterOrDigit(before))
                     {
                         value = "*" + value;
                     }
@@ -85,6 +85,13 @@ namespace FormulaBox
                 }
             }
 
+            return filledFormula;
+        }
+
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            string filledFormula = formulaBox.Text;
+            filledFormula = InsertVariables(filledFormula);
             MessageBox.Show(filledFormula);
         }
     }
