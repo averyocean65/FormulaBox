@@ -110,7 +110,10 @@ namespace FormulaBox
             filledFormula = InsertVariables(filledFormula);
             double result = ResolveFormula(filledFormula);
 
-            // TODO: Read out errors (if there are any)
+            while(ErrorManager.AnyErrors())
+            {
+                MessageBox.Show(ErrorManager.GetMostRecentError(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             MessageBox.Show(filledFormula);
         }

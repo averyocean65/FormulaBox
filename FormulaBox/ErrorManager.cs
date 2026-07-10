@@ -24,5 +24,10 @@ namespace FormulaBox
 
             return error;
         }
+
+        public static bool AnyErrors()
+        {
+            return Errors.Any();
+        }
     }
 }
